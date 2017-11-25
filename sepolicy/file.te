@@ -1,0 +1,22 @@
+type sysfs_rmnet, fs_type, sysfs_type;
+
+type wpa, domain;
+
+# Bluetooth executables and scripts
+type bluetooth_loader, domain;
+type bluetooth_loader_exec, exec_type, file_type;
+
+type hci_attach, domain;
+type hci_attach_exec, exec_type, file_type;
+
+# debugfs
+type debugfs_asoc, debugfs_type, fs_type;
+
+type kickstart_data_file, file_type, data_file_type;
+
+# Default type for anything under /firmware
+type radio_efs_file, fs_type, contextmount_type;
+
+# Persist firmware types
+type persist_sensors_file, file_type;
+type persist_wifi_file, file_type;

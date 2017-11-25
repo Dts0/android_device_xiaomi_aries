@@ -1,0 +1,93 @@
+
+#============= audioserver ==============
+allow audioserver debugfs_asoc:dir { open read search };
+allow audioserver qmuxd:unix_stream_socket connectto;
+allow audioserver qmuxd_socket:dir { add_name write };
+allow audioserver qmuxd_socket:sock_file { create setattr write };
+allow audioserver self:socket { create ioctl };
+
+#============= cameraserver ==============
+allow cameraserver init:unix_dgram_socket sendto;
+allow cameraserver system_data_file:sock_file write;
+allow cameraserver system_file:file execmod;
+
+#============= firmware_file ==============
+allow firmware_file labeledfs:filesystem associate;
+
+#============= init ==============
+allow init apk_data_file:sock_file write;
+allow init diag_device:chr_file write;
+allow init efs_block_device:blk_file write;
+allow init ion_device:chr_file ioctl;
+allow init qmuxd:unix_stream_socket connectto;
+allow init qmuxd_socket:sock_file write;
+allow init self:netlink_kobject_uevent_socket { bind create read setopt };
+allow init sensors_device:chr_file ioctl;
+allow init smem_log_device:chr_file { ioctl write };
+allow init socket_device:sock_file { create setattr };
+allow init video_device:chr_file { ioctl write };
+allow init cameraserver:fd use;
+allow init diag_device:chr_file ioctl;
+allow init efsbridgehsic_device:chr_file { getattr write };
+allow init gpu_device:chr_file { ioctl write };
+allow init ksbridgehsic_device:chr_file { getattr ioctl write };
+allow init mdm_device:chr_file ioctl;
+allow init property_socket:sock_file write;
+allow init self:socket { create ioctl };
+allow init system_file:file execute_no_trans;
+allow init untrusted_app_25:fd use;
+allow init wcnss_device:chr_file write;
+
+#============= keystore ==============
+allow keystore firmware_file:dir search;
+allow keystore firmware_file:file { getattr open read };
+
+#============= mediaextractor ==============
+allow mediaextractor fuse:file { getattr read };
+
+#============= priv_app ==============
+allow priv_app ffs_prop:property_service set;
+allow priv_app init:unix_stream_socket connectto;
+allow priv_app property_socket:sock_file write;
+
+#============= qti_init_shell ==============
+allow qti_init_shell sysfs_devices_system_cpu:file setattr;
+allow qti_init_shell toolbox_exec:file { execute execute_no_trans getattr open read };
+allow qti_init_shell cache_file:dir getattr;
+allow qti_init_shell ctl_default_prop:property_service set;
+allow qti_init_shell labeledfs:filesystem mount;
+allow qti_init_shell mdm_device:chr_file read;
+allow qti_init_shell qti_init_shell_tmpfs:file { create open };
+allow qti_init_shell storage_file:dir getattr;
+allow qti_init_shell system_file:dir mounton;
+allow qti_init_shell tmpfs:dir { add_name write };
+
+#============= system_server ==============
+allow system_server apk_data_file:sock_file { getattr write };
+allow system_server mdm_device:chr_file { getattr ioctl open read };
+allow system_server qmuxd:unix_stream_socket connectto;
+allow system_server qmuxd_socket:dir { add_name write };
+allow system_server qmuxd_socket:sock_file { create setattr write };
+allow system_server qti_debugfs:file { getattr open read };
+
+#============= bootanim ==============
+allow bootanim hal_configstore_default:binder call;
+
+#============= mediacodec ==============
+allow mediacodec camera_prop:file { getattr open read };
+
+#============= netmgrd ==============
+allow netmgrd shell_exec:file { execute execute_no_trans getattr open read };
+allow netmgrd toolbox_exec:file { execute execute_no_trans getattr open read };
+
+#============= qmuxd ==============
+allow qmuxd diag_device:chr_file { open read write };
+
+#============= toolbox ==============
+allow toolbox efs_block_device:blk_file { getattr open read };
+allow toolbox mdm_device:chr_file read;
+allow toolbox self:capability dac_override;
+allow toolbox tmpfs:dir { add_name write };
+
+#============= untrusted_app_25 ==============
+allow untrusted_app_25 camera_prop:file { getattr open };
