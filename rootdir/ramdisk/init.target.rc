@@ -37,7 +37,6 @@ on init
     export EXTERNAL_STORAGE /sdcard
 
     # Support legacy paths
-    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
 on fs
