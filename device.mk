@@ -35,6 +35,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/ramdisk/init.target.rc:root/init.target.rc \
     $(LOCAL_PATH)/rootdir/ramdisk/fstab.qcom:root/fstab.qcom
 
+PRODUCT_COPY_FILES += device/xiaomi/aries/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab
+
 # Prebuilt kl and kcm keymaps
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/keylayout/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
